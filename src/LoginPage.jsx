@@ -49,6 +49,10 @@ function LoginPage({ onLoginSuccess, authStorageError }) {
     };
   }, []);
 
+  useEffect(() => {
+    fetch(apiUrl('/api/admin/login'), { method: 'OPTIONS' }).catch(() => {});
+  }, []);
+
   const switchMode = (nextMode) => {
     setMode(nextMode);
     setError('');
